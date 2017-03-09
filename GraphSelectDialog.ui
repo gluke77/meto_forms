@@ -1,0 +1,987 @@
+<ui version="4.0" >
+ <author></author>
+ <comment></comment>
+ <exportmacro></exportmacro>
+ <class>GraphSelectDialog</class>
+ <widget class="QDialog" name="GraphSelectDialog" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>829</width>
+    <height>419</height>
+   </rect>
+  </property>
+  <property name="font" >
+   <font>
+    <family>MS Shell Dlg 2</family>
+    <pointsize>9</pointsize>
+    <weight>75</weight>
+    <italic>false</italic>
+    <bold>true</bold>
+    <underline>false</underline>
+    <strikeout>false</strikeout>
+   </font>
+  </property>
+  <property name="windowTitle" >
+   <string>Выберите график</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox_3" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>431</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Давление</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="e2pPressure" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭП внутр.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2kPressure" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭК внутр.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3kPressure" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭК нар.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3pPressure" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭП нар.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3mPressure" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭМ нар.</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_4" >
+   <property name="geometry" >
+    <rect>
+     <x>450</x>
+     <y>160</y>
+     <width>371</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>УЗГ</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="uzgFreq" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>Частота</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="uzgCurrent" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>Ток</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="uzgPower" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>Мощность</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="uzgTemp" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>Температура</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>811</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Скорость</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="e2pRotate" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭП внутр.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2kRotate" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭК внутр.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3kRotate" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭК нар.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3pRotate" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭП нар.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3mRotate" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭМ нар.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="tuSpeed" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ТУ</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="sgRotate" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>СГ (об/мин)</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="sgSpeed" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>СГ (м/мин)</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>711</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Ток</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="e2pCurrent" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭП внутр.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2kCurrent" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭК внутр.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3kCurrent" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭК нар.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3pCurrent" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭП нар.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3mCurrent" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ЭМ нар.</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="tuCurrent" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>ТУ</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="sgCurrent" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>1</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>СГ</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="cancelButton" >
+   <property name="geometry" >
+    <rect>
+     <x>730</x>
+     <y>10</y>
+     <width>91</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font" >
+    <font>
+     <family>MS Shell Dlg 2</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+     <underline>false</underline>
+     <strikeout>false</strikeout>
+    </font>
+   </property>
+   <property name="text" >
+    <string>Отмена</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_9" >
+   <property name="geometry" >
+    <rect>
+     <x>550</x>
+     <y>240</y>
+     <width>271</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Температура ЭМ нар.</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="e3mTracePv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>Т</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3mZone3Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3mZone2Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3mZone1Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_7" >
+   <property name="geometry" >
+    <rect>
+     <x>280</x>
+     <y>240</y>
+     <width>261</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Температура ЭК нар.</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="e3kTracePv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>Т</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3kZone3Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3kZone2Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3kZone1Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_8" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>240</y>
+     <width>261</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Температура ЭК внутр.</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="e2kZone1Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2kZone2Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2kZone3Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2kTracePv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>Т</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_5" >
+   <property name="geometry" >
+    <rect>
+     <x>490</x>
+     <y>330</y>
+     <width>331</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Температура ЭП нар.</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="e3pTracePv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>Т</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3pZone4Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>4</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3pZone3Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3pZone2Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e3pZone1Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="" >
+   <property name="geometry" >
+    <rect>
+     <x>10</x>
+     <y>330</y>
+     <width>321</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Температура ЭП внутр.</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="e2pZone1Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2pZone2Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2pZone3Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>3</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2pZone4Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>4</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="e2pTracePv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>Т</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_6" >
+   <property name="geometry" >
+    <rect>
+     <x>340</x>
+     <y>330</y>
+     <width>141</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title" >
+    <string>Температура ЭГ</string>
+   </property>
+   <layout class="QHBoxLayout" >
+    <property name="margin" >
+     <number>9</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="QPushButton" name="sgZone1Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>1</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="sgZone2Pv" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>5</hsizetype>
+        <vsizetype>5</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text" >
+       <string>2</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <pixmapfunction></pixmapfunction>
+ <resources/>
+ <connections/>
+</ui>

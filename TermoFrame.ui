@@ -1,0 +1,291 @@
+<ui version="4.0" >
+ <author></author>
+ <comment></comment>
+ <exportmacro></exportmacro>
+ <class>TermoFrame</class>
+ <widget class="QWidget" name="TermoFrame" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>104</width>
+    <height>265</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>9</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="textLabel" >
+     <property name="maximumSize" >
+      <size>
+       <width>121</width>
+       <height>31</height>
+      </size>
+     </property>
+     <property name="cursor" >
+      <cursor>10</cursor>
+     </property>
+     <property name="text" >
+      <string>1</string>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="NumericEntry" name="preset" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>5</hsizetype>
+       <vsizetype>5</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>121</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="cursor" >
+      <cursor>10</cursor>
+     </property>
+     <property name="mouseTracking" >
+      <bool>false</bool>
+     </property>
+     <property name="focusPolicy" >
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="acceptDrops" >
+      <bool>false</bool>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignHCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="NumericEdit" name="current" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>13</hsizetype>
+       <vsizetype>13</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>121</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="cursor" >
+      <cursor>10</cursor>
+     </property>
+     <property name="mouseTracking" >
+      <bool>false</bool>
+     </property>
+     <property name="focusPolicy" >
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="acceptDrops" >
+      <bool>false</bool>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignHCenter</set>
+     </property>
+     <property name="readOnly" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="NumericEdit" name="delta" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>13</hsizetype>
+       <vsizetype>13</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>121</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="cursor" >
+      <cursor>10</cursor>
+     </property>
+     <property name="mouseTracking" >
+      <bool>false</bool>
+     </property>
+     <property name="focusPolicy" >
+      <enum>Qt::NoFocus</enum>
+     </property>
+     <property name="acceptDrops" >
+      <bool>false</bool>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignHCenter</set>
+     </property>
+     <property name="readOnly" >
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="NumericEntry" name="maxDelta" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>5</hsizetype>
+       <vsizetype>5</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>121</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="cursor" >
+      <cursor>10</cursor>
+     </property>
+     <property name="mouseTracking" >
+      <bool>false</bool>
+     </property>
+     <property name="focusPolicy" >
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="acceptDrops" >
+      <bool>false</bool>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignHCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="NumericEntry" name="minDelta" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>5</hsizetype>
+       <vsizetype>5</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>121</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="cursor" >
+      <cursor>10</cursor>
+     </property>
+     <property name="mouseTracking" >
+      <bool>false</bool>
+     </property>
+     <property name="focusPolicy" >
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="acceptDrops" >
+      <bool>false</bool>
+     </property>
+     <property name="alignment" >
+      <set>Qt::AlignHCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="ToggleButton" name="runStopButton" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>5</hsizetype>
+       <vsizetype>5</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>121</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="cursor" >
+      <cursor>10</cursor>
+     </property>
+     <property name="focusPolicy" >
+      <enum>Qt::NoFocus</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="ToggleButton" name="linkButton" >
+     <property name="sizePolicy" >
+      <sizepolicy>
+       <hsizetype>5</hsizetype>
+       <vsizetype>5</vsizetype>
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="maximumSize" >
+      <size>
+       <width>121</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="cursor" >
+      <cursor>10</cursor>
+     </property>
+     <property name="focusPolicy" >
+      <enum>Qt::NoFocus</enum>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <pixmapfunction></pixmapfunction>
+ <customwidgets>
+  <customwidget>
+   <class>ToggleButton</class>
+   <extends>QPushButton</extends>
+   <header>togglebutton.h</header>
+   <container>0</container>
+   <pixmap></pixmap>
+  </customwidget>
+  <customwidget>
+   <class>NumericEntry</class>
+   <extends>QLineEdit</extends>
+   <header>numericentry.h</header>
+   <container>0</container>
+   <pixmap></pixmap>
+  </customwidget>
+  <customwidget>
+   <class>NumericEdit</class>
+   <extends>QLineEdit</extends>
+   <header>numericedit.h</header>
+   <container>0</container>
+   <pixmap></pixmap>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,7 @@
+release/
+debug/
+ui_*
+build*.txt
+object_script*
+Makefile*
+meto_forms.pro*

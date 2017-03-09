@@ -1,0 +1,10 @@
+CREATE TABLE `meto`.`event_log` (
+  `id` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT,
+  `code` INTEGER NOT NULL,
+  `user_name` VARCHAR(45) NOT NULL,
+  `raised` DATETIME NOT NULL,
+  `accepted` DATETIME,
+  PRIMARY KEY (`id`)
+)
+ENGINE = MyISAM
+CHARACTER SET cp1251 COLLATE cp1251_general_ci;
