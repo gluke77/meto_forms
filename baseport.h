@@ -18,18 +18,10 @@ using namespace std;
 
 class BasePort  
 {
-	
-	list<ModbusMsg>	msgList;
-
 public:
 	
 	bool readMsg(ModbusMsg & msg, ModbusMsg::MsgType msgType = ModbusMsg::Response) const;
 	bool writeMsg(const ModbusMsg & msg) const;
-	bool write(const char * buf, const DWORD bytesToWrite) const;
-	bool read(char * buf, DWORD bytesToRead) const;
-	void postMsg(ModbusMsg msg);
-	bool nextMsg(ModbusMsg & msg);
-	bool sendNextMsg(bool waitForReply = true);
 
 	HANDLE handle() const;
 	bool connected() const;
@@ -41,6 +33,12 @@ public:
 	BasePort(const wstring & portName, DWORD baudRate = CBR_9600, BYTE parity = NOPARITY, BYTE stopBits = ONESTOPBIT, BYTE byteSize = 8, DWORD readTimeout = 3000);
 	virtual ~BasePort();
 
+	QMutex			mutex;
+
+private:
+
+	HANDLE _hPort;
+	
 	wstring _portName;
 	BYTE _stopBits;
 	BYTE _byteSize;
@@ -48,23 +46,11 @@ public:
 	DWORD _baudRate;
 	DWORD _readTimeout;
 
-	QMutex			mutex;
+	list<ModbusMsg>	msgList;
 
-/*
-	void lock()
-	{
-		mutex.lock();
-	};
+	bool write(const char * buf, const DWORD bytesToWrite) const;
+	bool read(char * buf, DWORD bytesToRead) const;
 
-	void unlock()
-	{
-		mutex.unlock();
-	};
-*/
-
-private:
-
-	HANDLE _hPort;
 	
 };
 

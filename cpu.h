@@ -176,8 +176,6 @@ public slots:
 
 	virtual bool poll(bool overrideEmit = false);
 
-	bool sendRequest();
-
 	void setWaterMode(int mode = 0);
 	void setCoolerPump(bool on = true);
 	void setExtruderPump(bool on = true);

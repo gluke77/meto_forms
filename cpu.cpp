@@ -337,41 +337,6 @@ bool Cpu::secondaryReelOn()
 	return sensorOn(SecondaryReel);
 }
 
-bool Cpu::sendRequest()
-{
-	if (isDisconnected())
-		return false;
-
-	if (!_port)
-	{
-		disconnect(true);
-		return false;
-	}
-	
-	if (!_port->connected())
-	{
-		disconnect(true);
-		return false;
-	}
-
-	ModbusMsg msg(ModbusMsg::Command,
-		ModbusMsg::Read,
-		_deviceId,
-		_controls.readAddr(),
-		3);
-
-	QMutexLocker	locker(&(_port->mutex));
-	Sleep(50);
-
-	if (!_port->writeMsg(msg))
-	{
-		disconnect(true);
-		return false;
-	}
-	
-	return true;
-}
-
 bool Cpu::poll(bool overrideEmit)
 {
 	if (isDisconnected())
@@ -395,30 +360,46 @@ bool Cpu::poll(bool overrideEmit)
 		_controls.readAddr(),
 		3);
 
-	QMutexLocker	locker(&(_port->mutex));
+    _port->mutex.lock();
 
 	Sleep(PORT_LOCK_DELAY);
 
-	if (!_port->readMsg(msg))
+	if (!_port->writeMsg(msg))
 	{
-//		disconnect(true);
+		disconnect(true);
+        _port->mutex.unlock();
 		return false;
 	}
 
-	if (ModbusMsg::Read != msg.cmdCode())
+	ModbusMsg resp(ModbusMsg::Response,
+		ModbusMsg::Read,
+		_deviceId,
+		_controls.readAddr(),
+		3);
+
+	if (!_port->readMsg(resp))
+	{
+//		disconnect(true);
+        _port->mutex.unlock();
+		return false;
+	}
+
+    _port->mutex.unlock();
+	
+    if (ModbusMsg::Read != resp.cmdCode())
 		return false;
 
-	if (_deviceId != msg.devId())
+	if (_deviceId != resp.devId())
 		return false;
 
-//	if (sv->readAddr() != msg.addr())
+//	if (sv->readAddr() != resp.addr())
 //		return false;
 
-	if (3 != msg.data().size())
+	if (3 != resp.data().size())
 		return false;
 	
-	int new_controls = msg.data()[0];
-	int new_sensors = msg.data()[1] | (msg.data()[2] << 16);
+	int new_controls = resp.data()[0];
+	int new_sensors = resp.data()[1] | (resp.data()[2] << 16);
 	
 	int old_controls = _controls.rawValue();
 	int old_sensors = _sensors.rawValue();
