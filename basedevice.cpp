@@ -69,8 +69,8 @@ bool BaseDevice::storeValue(const StoredValue & sv, bool waitForReply)
 		result = false;
 	}
 	
-	if (!result)
-		disconnect(true);
+	//if (!result)
+		//disconnect(true);
 	
 	return result;
 }
@@ -131,12 +131,10 @@ bool BaseDevice::loadValue(StoredValue & sv, bool overrideEmit)
 	}
 	
 	if (!result)
-		disconnect(true);
-	else if ((ModbusMsg::Read == ack.cmdCode()) &&
-				(ModbusMsg::Error != ack.msgType()) &&
-				(_deviceId == ack.devId()) &&
-				(1 == ack.data().size()))
-	
+    {
+        //disconnect(true);
+    }
+	else 
 		sv.setRawValue(ack.data()[0], true, overrideEmit);
 	
 	return result;

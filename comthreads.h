@@ -51,7 +51,6 @@ public:
 		{
 			if (0 == count--)
 			{
-				pexline.cpu.sendRequest();
 				count = repeat_count;
 			}
 			
