@@ -19,6 +19,8 @@ void Cpu::setControl(enum Cpu::Controls control_id, bool on)
 		return;
 
 	int id = (int)control_id;
+
+    mutex.lock();
 	int ctrls = _controls.rawValue();
 	
 	if (on)
@@ -26,8 +28,13 @@ void Cpu::setControl(enum Cpu::Controls control_id, bool on)
 	else
 		ctrls &= ~(1 << id);
 
-	_controls.setRawValue(ctrls, false);
-	storeValue(_controls, false);
+	if (ctrls != _controls.rawValue()) 
+    {
+        _controls.setRawValue(ctrls, false);
+	    storeValue(_controls, false);
+    }
+
+    mutex.unlock();
 }
 
 bool Cpu::controlOn(Cpu::Controls control_id)
@@ -360,6 +367,7 @@ bool Cpu::poll(bool overrideEmit)
 		_controls.readAddr(),
 		3);
 
+    mutex.lock();
     _port->mutex.lock();
 
 	Sleep(PORT_LOCK_DELAY);
@@ -368,6 +376,7 @@ bool Cpu::poll(bool overrideEmit)
 	{
 		disconnect(true);
         _port->mutex.unlock();
+        mutex.unlock();
 		return false;
 	}
 
@@ -381,22 +390,32 @@ bool Cpu::poll(bool overrideEmit)
 	{
 //		disconnect(true);
         _port->mutex.unlock();
+        mutex.unlock();
 		return false;
 	}
 
     _port->mutex.unlock();
 	
     if (ModbusMsg::Read != resp.cmdCode())
+    {
+        mutex.unlock();
 		return false;
+    }
 
 	if (_deviceId != resp.devId())
-		return false;
+    {
+        mutex.unlock();
+        return false;
+    }
 
 //	if (sv->readAddr() != resp.addr())
 //		return false;
 
 	if (3 != resp.data().size())
-		return false;
+    {
+        mutex.unlock();
+        return false;
+    }
 	
 	int new_controls = resp.data()[0];
 	int new_sensors = resp.data()[1] | (resp.data()[2] << 16);
@@ -409,6 +428,8 @@ bool Cpu::poll(bool overrideEmit)
 	
 	_controls.setRawValue(new_controls, true);
 	_sensors.setRawValue(new_sensors, true);
+    
+    mutex.unlock();
 
 	int changed_controls;
 
