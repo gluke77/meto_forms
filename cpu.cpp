@@ -20,7 +20,7 @@ void Cpu::setControl(enum Cpu::Controls control_id, bool on)
 
 	int id = (int)control_id;
 
-    mutex.lock();
+    QMutexLocker locker(&mutex);
 	int ctrls = _controls.rawValue();
 	
 	if (on)
@@ -28,13 +28,11 @@ void Cpu::setControl(enum Cpu::Controls control_id, bool on)
 	else
 		ctrls &= ~(1 << id);
 
-	if (ctrls != _controls.rawValue()) 
-    {
-        _controls.setRawValue(ctrls, false);
-	    storeValue(_controls, true);
-    }
+	if (ctrls == _controls.rawValue()) 
+        return;
 
-    mutex.unlock();
+    _controls.setRawValue(ctrls, false);
+    storeValue(_controls, true);
 }
 
 bool Cpu::controlOn(Cpu::Controls control_id)
@@ -180,7 +178,9 @@ void Cpu:: setSirenMode(int mode)
 	if (0 > mode || mode > 3)
 		mode = 0;
 
-	int ctrls = _controls.rawValue();
+	QMutexLocker locker(&mutex);
+    
+    int ctrls = _controls.rawValue();
 
 	int mask = (1 << (int)SirenMode0) | (1 << (int)SirenMode1);
 	int shift = (int)SirenMode0;
@@ -188,7 +188,10 @@ void Cpu:: setSirenMode(int mode)
 	ctrls &= ~mask;
 	ctrls |= mode << shift;
 
-	_controls.setRawValue(ctrls, false);
+    if (ctrls == _controls.rawValue())
+        return;
+
+	_controls.setRawValue(ctrls, true);
 	storeValue(_controls, false);
 }
 
@@ -196,6 +199,8 @@ void Cpu:: setWaterMode(int mode)
 {
 	if (0 > mode || mode > 2)
 		mode = 0;
+
+	QMutexLocker locker(&mutex);
 
 	int ctrls = _controls.rawValue();
 
@@ -205,7 +210,10 @@ void Cpu:: setWaterMode(int mode)
 	ctrls &= ~mask;
 	ctrls |= mode << shift;
 
-	_controls.setRawValue(ctrls, false);
+    if (ctrls == _controls.rawValue())
+        return;
+
+	_controls.setRawValue(ctrls, true);
 	storeValue(_controls, false);
 }
 
@@ -474,10 +482,10 @@ bool Cpu::poll(bool overrideEmit)
 	if (testBit(changed_controls, FoilLed))
 		emit foilLedChanged(foilLedOn());
 
-	if ((waterMode() != old_water_mode) && overrideEmit)
+	if ((waterMode() != old_water_mode))
 		emit waterModeChanged(waterMode());
 
-	if ((sirenMode() != old_siren_mode) && overrideEmit)
+	if ((sirenMode() != old_siren_mode))
 		emit sirenModeChanged(sirenMode());
 
 	int changed_sensors;
