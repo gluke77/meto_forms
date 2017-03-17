@@ -31,7 +31,7 @@ void Cpu::setControl(enum Cpu::Controls control_id, bool on)
 	if (ctrls != _controls.rawValue()) 
     {
         _controls.setRawValue(ctrls, false);
-	    storeValue(_controls, false);
+	    storeValue(_controls, true);
     }
 
     mutex.unlock();
