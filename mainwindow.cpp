@@ -192,9 +192,10 @@ void MainWindow::on_logCommitButton_clicked()
         _currentWarning = _acceptedWarningList.end() - 1;
     }
 
-	showWarning();
 	pexline.cpu.setSirenMode(0);
 	pexline.cpu.setLampStop(false);
+
+	showWarning();
 }
 
 void MainWindow::postWarning(int code, int sirenMode)
@@ -3320,11 +3321,11 @@ void MainWindow::fillWarningMap()
 }
 void MainWindow::alarmStop(int sirenMode)
 {
+	pexline.alarmStop();
 	postWarning(AlarmStop, sirenMode);
 	startButton->setChecked(false);
 	startButton->setBlink(false);
 	_lineStarted = false;
-	pexline.alarmStop();
 }
 bool MainWindow::autostartCheck(int check)
 {
