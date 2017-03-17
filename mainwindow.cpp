@@ -171,34 +171,38 @@ void MainWindow::on_lineSvarkaSelectButton_clicked()
 
 void MainWindow::on_logCommitButton_clicked()
 {
-	if (_unacceptedWarningList.isEmpty())
-		return;
+    QMutexLocker locker(&warningMutex);
 
-	Warning warning = _unacceptedWarningList.front();
-	
-	_acceptedWarningList.push_back(warning);
-	_unacceptedWarningList.pop_front();
-	warning.isAccepted = true;
-	warning.accepted = QDateTime::currentDateTime();
+	while (!_unacceptedWarningList.isEmpty())
+    {
+        Warning warning = _unacceptedWarningList.front();
+        
+        _acceptedWarningList.push_back(warning);
+        _unacceptedWarningList.pop_front();
+        warning.isAccepted = true;
+        warning.accepted = QDateTime::currentDateTime();
 
-	QSqlQuery query;
-	query.prepare("update event_log set accepted = :accepted where id = :id and raised = :raised");
-	query.bindValue(":id", warning.id);
-	query.bindValue(":raised", warning.raised.toString("yyyy-MM-dd hh:mm:ss"));
-	query.bindValue(":accepted", warning.accepted.toString("yyyy-MM-dd hh:mm:ss"));
-	query.exec();
+        QSqlQuery query;
+        query.prepare("update event_log set accepted = :accepted where id = :id and raised = :raised");
+        query.bindValue(":id", warning.id);
+        query.bindValue(":raised", warning.raised.toString("yyyy-MM-dd hh:mm:ss"));
+        query.bindValue(":accepted", warning.accepted.toString("yyyy-MM-dd hh:mm:ss"));
+        query.exec();
 
-	_currentWarning = _acceptedWarningList.end() - 1;
+        _currentWarning = _acceptedWarningList.end() - 1;
+    }
 
-	showWarning();
 	pexline.cpu.setSirenMode(0);
 	pexline.cpu.setLampStop(false);
+
+	showWarning();
 }
 
 void MainWindow::postWarning(int code, int sirenMode)
 {
 	// -1 == sirenMode -- autoAccept
-	
+    QMutexLocker locker(&warningMutex);
+
 	Warning	warning(code, ++_nextWarningId, _user, -1 == sirenMode);
 
 	if (0 < sirenMode)
@@ -3317,11 +3321,11 @@ void MainWindow::fillWarningMap()
 }
 void MainWindow::alarmStop(int sirenMode)
 {
+	pexline.alarmStop();
 	postWarning(AlarmStop, sirenMode);
 	startButton->setChecked(false);
 	startButton->setBlink(false);
 	_lineStarted = false;
-	pexline.alarmStop();
 }
 bool MainWindow::autostartCheck(int check)
 {

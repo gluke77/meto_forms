@@ -2,6 +2,8 @@
 #define _MAINWINDOW_INCLUDED
 
 #include <QtGui>
+#include <QMutex>
+#include <QMutexLocker>
 #include "ui_MainWindow.h"
 
 #include "logindialog.h"
@@ -33,7 +35,9 @@ public:
 class MainWindow : public QWidget, public Ui_MainWindow
 {
 	Q_OBJECT
-	
+
+    QMutex warningMutex;
+
 public:
 
 	MainWindow(QWidget * parent = 0);

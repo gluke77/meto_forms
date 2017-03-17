@@ -6,7 +6,7 @@
 #include "storedvalue.h"
 #include "triggervalue.h"
 
-#define	PORT_LOCK_DELAY		(150)
+#define	PORT_LOCK_DELAY		(50)
 #define MAX_ERROR_COUNT		(5)
 
 class BasePort;

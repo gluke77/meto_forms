@@ -6,6 +6,7 @@
 #define _CPU_INCLUDED
 
 #include <QObject>
+#include <QMutex>
 
 #include "basedevice.h"
 #include "baseport.h"
@@ -72,6 +73,8 @@ Q_OBJECT
 
 	StoredValue	_controls;
 	StoredValue _sensors;
+
+    QMutex mutex;
 
 public:
 
