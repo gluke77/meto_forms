@@ -54,7 +54,7 @@ int main(int argc, char ** argv)
 
         QPixmap pixmap("mnemo.gif");
         QSplashScreen splash(pixmap, Qt::WindowStaysOnTopHint);
-        splash.showMaximized();
+        splash.show();
         app.processEvents();
         splash.showMessage(QString("Инициализация системы. Пожалуйста, ждите..."), Qt::AlignCenter);
         app.processEvents();
@@ -63,11 +63,7 @@ int main(int argc, char ** argv)
         app.processEvents();
 
 	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
-//	db.setHostName("localhost");
-//	db.setPort(3306);
 	db.setDatabaseName("meto.db");
-//	db.setUserName("root");
-//	db.setPassword("root");
 	bool ok = db.open();
 
         app.processEvents();
@@ -77,11 +73,6 @@ int main(int argc, char ** argv)
 
         startComThreads();
         app.processEvents();
-
-
-        for (double d = 0; d < 1000000.; d+=.001)
-            d+=.00001;
-
 
         splash.clearMessage();
         app.processEvents();
