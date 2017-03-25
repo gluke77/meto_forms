@@ -37,24 +37,15 @@ class Com3Thread : public MyThread
 {
 	Q_OBJECT
 	
-	static const int repeat_count = 20;
-	
 public:
 
 	Com3Thread(BasePort * port = 0) : MyThread(port) {};
 
 	void run()
 	{
-		int count = repeat_count;
-		
 		while (_continue)
 		{
-			if (0 == count--)
-			{
-				count = repeat_count;
-			}
-			
-			pexline.cpu.poll(repeat_count == count);
+			pexline.cpu.poll(1);
 			
 			msleep(SLEEP_DELAY);
 		}
